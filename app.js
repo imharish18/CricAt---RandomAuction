@@ -305,23 +305,23 @@ function work4(){
   });
 }
 function work3(){
-  var end = Date.now() + (5000);
+  var end = Date.now() + (3000);
 
 // go Buckeyes!
-var colors = ["#cd252e", '#261538'];
+var colors = ["#cd252e", '#193A8A'];
 
 (function frame() {
   confetti({
-    particleCount: 2,
+    particleCount: 5,
     angle: 60,
-    spread: 155,
+    spread: 60,
     origin: { x: 0 },
     colors: colors
   });
   confetti({
-    particleCount: 2,
+    particleCount: 5,
     angle: 120,
-    spread: 155,
+    spread: 60,
     origin: { x: 1 },
     colors: colors
   });
@@ -332,7 +332,7 @@ var colors = ["#cd252e", '#261538'];
 }());
 }
 function work2(){
-  var duration = 5000;
+  var duration = 3000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
 
@@ -342,7 +342,7 @@ function randomInRange(min, max) {
 
 (function frame() {
   var timeLeft = animationEnd - Date.now();
-  var ticks = Math.max(200, 500 * (timeLeft / duration));
+  var ticks = Math.max(200, 200 * (timeLeft / duration));
   skew = Math.max(0.8, skew - 0.001);
 
   confetti({
@@ -367,9 +367,9 @@ function randomInRange(min, max) {
 }());
 }
 function work1(){
-  var duration = 5000;
+  var duration = 3000;
   var animationEnd = Date.now() + duration;
-  var defaults = { startVelocity: 30, spread: 360, ticks: 600, zIndex: 2000 };
+  var defaults = { startVelocity: 30, spread: 360, ticks: 40, zIndex: 2000 };
 
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
@@ -382,9 +382,9 @@ var interval = setInterval(function() {
     return clearInterval(interval);
   }
 
-  var particleCount = 550 * (timeLeft / duration);
+  var particleCount = 700 * (timeLeft / duration);
   // since particles fall down, start a bit higher than random
   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
   confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
-}, 250);
+}, 500);
 }
