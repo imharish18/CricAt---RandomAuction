@@ -41,7 +41,6 @@ function extractFileId(driveLink2) {
     return null;
   }
 }
-
 let defaultLink = "https://drive.google.com/thumbnail?id="
 function generateThumbnailUrl(driveLink) {
   console.log("Original"+driveLink);
@@ -51,17 +50,14 @@ function generateThumbnailUrl(driveLink) {
   return defaultLink + extractFileId(driveLink);
 
 }
-
-
 let firstName = document.querySelector("#firstName");
 let lastName = document.querySelector("#lastName");
 let role = document.querySelector("#batBowl");
 let style = document.querySelector("#style");
 let link = "I am link"
-let playerCount = 0;
+let playerCount = -1;
 let limg = document.querySelector("#navLimg");
 let rimg = document.querySelector("#navRimg");
-
 limg.addEventListener("click",()=>{
   if(teamCount.length == 6){
     removeLock();
@@ -123,7 +119,6 @@ let team4 = document.querySelector("#team4");
 let team5 = document.querySelector("#team5");
 let team6 = document.querySelector("#team6");
 let teamCount = [];
-
 function removeLock(){
   team1.classList.remove('done');
   team2.classList.remove('done');
@@ -145,15 +140,11 @@ function selectRandomTeam() {
   teamCount.push(randomNumber);
   return randomNumber;
 }
-
-
-
 function animateTeams(callback) {
   let world = 0;
   const teams = [team1, team2, team3, team4, team5, team6];
   const speed = [120, 120, 110, 100, 90, 80, 70, 60, 50, 50, 50, 50, 60, 70, 80, 90, 100, 110, 120];
   let teamIndex = 0;
-
   function animateNextTeam() {
     if (world >= 6 ) {
       if (typeof callback === "function") callback();
@@ -186,8 +177,6 @@ function animateTeams(callback) {
   }
   animateNextTeam();
 }
-
-
 function freezeTeam(team){
   if (team == 0) {
     team1.classList.add('excited');
@@ -257,8 +246,6 @@ start.addEventListener("click", () => {
     freezeTeam(selectRandomTeam());
   });
 });
-
-
 function teamPosterAnimation(name){
   tapSound.pause();
   tapSound = new Audio("sound/celebration.mp3");
@@ -272,7 +259,7 @@ function teamPosterAnimation(name){
   popUpImg.style.display = "block"
   setTimeout(() => {
   popUpImg.style.display = "none"
-  }, 5000);
+  }, 7000);
 }
 function work4(){
 
@@ -318,7 +305,7 @@ function work4(){
   });
 }
 function work3(){
-  var end = Date.now() + (3000);
+  var end = Date.now() + (5000);
 
 // go Buckeyes!
 var colors = ["#cd252e", '#261538'];
@@ -345,7 +332,7 @@ var colors = ["#cd252e", '#261538'];
 }());
 }
 function work2(){
-  var duration = 3000;
+  var duration = 5000;
 var animationEnd = Date.now() + duration;
 var skew = 1;
 
@@ -380,9 +367,9 @@ function randomInRange(min, max) {
 }());
 }
 function work1(){
-  var duration = 3000;
+  var duration = 5000;
   var animationEnd = Date.now() + duration;
-  var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 2000 };
+  var defaults = { startVelocity: 30, spread: 360, ticks: 600, zIndex: 2000 };
 
 function randomInRange(min, max) {
   return Math.random() * (max - min) + min;
